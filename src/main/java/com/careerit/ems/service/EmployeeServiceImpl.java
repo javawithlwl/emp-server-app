@@ -33,7 +33,9 @@ public class EmployeeServiceImpl implements  EmployeeService{
 
   @Override
   public List<EmployeeDto> getAllEmployees() {
-    return null;
+      List<Employee> employees = employeeRepo.findAll();
+      List<EmployeeDto> employeeDtos = objectMapper.convertValue(employees, List.class);
+      return employeeDtos;
   }
 
   @Override
